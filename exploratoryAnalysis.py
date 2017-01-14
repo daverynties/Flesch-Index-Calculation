@@ -11,7 +11,7 @@ vowels = 'aeiouy'
 listNumSyllables = []
 wordList = []
 
-filename = '/Users/dave/CIS/678/P1/ga.txt'
+filename = '/Users/dave/CIS/678/P1/mb.txt'
 
 with open(filename, 'r') as file:
     start_time = datetime.datetime.now()
@@ -19,7 +19,6 @@ with open(filename, 'r') as file:
         line.replace("...", " ")
         numSentences += line.count('.')
         line = line.translate(None, string.punctuation)
-
 
         for word in line.split():
             silent = None
@@ -57,6 +56,7 @@ print('\nAll Items for Histogram in: listNumSyllables')
 print('Number of Sentences: %i' % numSentences)
 print('Number of Words: %i' % len(listNumSyllables))
 print('Number of Syllables: %i' % (sum(listNumSyllables)))
+print('Average Number of Syllables Per Word %.2f' % asl)
 print('Syllable Count Time: %i Microseconds' % micro)
 print('\nFlesch Index: %.2f' % fi)
 
