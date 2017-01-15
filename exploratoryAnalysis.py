@@ -42,7 +42,7 @@ with open(filename, 'r') as file:
             listNumSyllables.append(num_syllables)
 
     total_time = datetime.datetime.now() - start_time
-    micro = int(total_time.total_seconds() * 1000000)
+    micro = int(total_time.total_seconds() * 1000)
 
 totalSyllables = sum(listNumSyllables)
 totalWords = len(listNumSyllables)
@@ -57,7 +57,7 @@ print('Number of Sentences: %i' % numSentences)
 print('Number of Words: %i' % len(listNumSyllables))
 print('Number of Syllables: %i' % (sum(listNumSyllables)))
 print('Average Number of Syllables Per Word %.2f' % asl)
-print('Syllable Count Time: %i Microseconds' % micro)
+print('Syllable Count Time: %i Milliseconds' % micro)
 print('\nFlesch Index: %.2f' % fi)
 
 plt.hist(listNumSyllables)
