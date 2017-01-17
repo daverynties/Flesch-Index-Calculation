@@ -42,7 +42,7 @@ with open(filename, 'r') as file:
             listNumSyllables.append(num_syllables)
 
     total_time = datetime.datetime.now() - start_time
-    micro = int(total_time.total_seconds() * 1000)
+    milli = int(total_time.total_seconds() * 1000)
 
 totalSyllables = sum(listNumSyllables)
 totalWords = len(listNumSyllables)
@@ -52,16 +52,19 @@ asl = totalSyllables / float(totalWords)
 
 fi = 206.835 - (1.015 * aws) - (84.6 * asl)
 
-print('\nAll Items for Histogram in: listNumSyllables')
-print('Number of Sentences: %i' % numSentences)
-print('Number of Words: %i' % len(listNumSyllables))
-print('Number of Syllables: %i' % (sum(listNumSyllables)))
-print('Average Number of Syllables Per Word %.2f' % asl)
-print('Syllable Count Time: %i Milliseconds' % micro)
-print('\nFlesch Index: %.2f' % fi)
+# print('\nAll Items for Histogram in: listNumSyllables')
+# print('Number of Sentences: %i' % numSentences)
+# print('Number of Words: %i' % len(listNumSyllables))
+# print('Number of Syllables: %i' % (sum(listNumSyllables)))
+# print('Average Number of Syllables Per Word %.2f' % asl)
 
 plt.hist(listNumSyllables)
-plt.title("Syllable Complexity")
+plt.title("Syllable Complexity - Moby Dick")
 plt.xlabel("Number of Syllables")
 plt.ylabel("Frequency")
-plt.savefig('histogram.png')
+plt.savefig('syllableFreq.png')
+
+print('\nFlesch Index: %.2f' % fi)
+print('Execution Time: %i Milliseconds' % milli)
+
+
